@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="toucharea" data-touch="swipeGesture">
+        <h1>
+            Try swiping... (for mobile view only)
+        </h1>
+    </main>
+</body>
+</html>
+<script src="./swipegesture.js"></script>
+<script>
+    const swipeArea = document.querySelector(".toucharea[data-touch^='swipe']")
+    const rightCb = function(ele){
+        ele.innerHTML = `<h1 style='color:white'>
+                You swiped from left to right
+            </h1>`
+    }
+    const leftCb = function(ele){
+        ele.innerHTML = `<h1 style='color:tomato'>
+                You swiped from right to left
+            </h1>`
+    }
+    let SG = new SwipeGesture("slateblue",_=>rightCb(swipeArea),_=>leftCb(swipeArea))
+</script>
